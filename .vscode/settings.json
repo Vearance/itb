@@ -1,0 +1,20 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "utils.h": "c",
+        "manager.h": "c",
+        "queue_linkedlist.h": "c",
+        "dokter.h": "c",
+        "diagnosis.h": "c",
+        "matrix.h": "c",
+        "hospital.h": "c",
+        "checkup.h": "c",
+        "auth.h": "c",
+        "stdlib.h": "c",
+        "user.h": "c",
+        "listobat.h": "c",
+        "stdbool.h": "c",
+        "ngobatin.h": "c",
+        "command.h": "c"
+    }
+}
