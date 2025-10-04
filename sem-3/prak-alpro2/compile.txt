@@ -1,0 +1,8 @@
+inside ghci:
+
+:l MyFile.hs    -- load file
+:r              -- reload after editing
+square 5        -- call a function
+
+
+execute with 'ghci' or 'ghci <name>.hs'
