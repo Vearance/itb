@@ -18,6 +18,20 @@ os.makedirs(output_dir, exist_ok=True)
 def normalize_stdout(s):
     return s.strip().replace("\r\n", "\n").replace("\r", "\n")
 
+def filter_relevant_output(s):
+    lines = s.splitlines()
+    filtered = []
+    for line in lines:
+        # Skip typical input prompts
+        if line.strip().endswith(":"):
+            continue
+        if line.lower().startswith("masukkan"):
+            continue
+        if line.lower().startswith("input"):
+            continue
+        filtered.append(line)
+    return "\n".join(filtered).strip()
+
 def numbers_only(s):
     return " ".join(re.findall(r"-?\d+\.?\d*", s))
 
@@ -63,7 +77,7 @@ for zip_path in zip_files:
 
     row_result = {"NIM": nim, "Praktikum": prac_full}
 
-    for yy in range(1, 4):  # TODO: ganti di bagian ini kalo jumlah file berbeda.
+    for yy in range(1, 4):  # TODO: ganti kalo jumlah file berbeda
         soal_dir = f"{test_dir}/{yy:02d}"
         test_paths = sorted(glob.glob(f"{soal_dir}/test*.txt"))
         print(f"- Menguji soal {yy:02d} ({len(test_paths)} testcases)")
@@ -102,10 +116,20 @@ for zip_path in zip_files:
                     timeout=5
                 )
                 raw_out = proc.stdout
-                norm_out = normalize_stdout(raw_out)
+
+                # Normalize and filter
+                filtered_out = normalize_stdout(filter_relevant_output(raw_out))
                 norm_exp = normalize_stdout(expected_raw)
 
-                if norm_out == norm_exp or approx_equal(norm_out, norm_exp):
+                passed = False
+                if (
+                    filtered_out == norm_exp
+                    or approx_equal(filtered_out, norm_exp)
+                    or numbers_only(filtered_out) == numbers_only(norm_exp)
+                ):
+                    passed = True
+
+                if passed:
                     total_passed += 1
                     print(f"  - Test {test_id}: OK")
                 else:
@@ -124,13 +148,13 @@ for zip_path in zip_files:
         row_result[f"soal{yy:02d}"] = score
         print(f"  - Skor soal {yy:02d}: {score}")
 
-        # hanya simpan output jika skor sempurna
         if score < 0.6:
             for test_id, content in all_outputs:
                 safe_write(f"{output_dir}/{nim}_soal{yy:02d}_test{test_id}.txt", content)
+
     results.append(row_result)
 
-# gabung semua kolom
+# Write CSV
 fieldnames = sorted(set().union(*[r.keys() for r in results]))
 
 with open(csv_path, "w", newline="", encoding="utf-8") as f:
