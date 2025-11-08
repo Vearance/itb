@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="algeo.gui.CalculationController">
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+    </padding>
+    <top>
+        <Label fx:id="headerLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Judul - Metode" BorderPane.alignment="CENTER" />
+    </top>
+    <center>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Input:" />
+                <TextArea fx:id="inputArea" prefHeight="90.0" promptText="Masukkan matriks di sini atau gunakan tombol 'Load File'." VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <VBox spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER" spacing="10.0">
+                    <children>
+                        <Button onAction="#handleLoadFile" text="Load File (.txt)" />
+                        <Button onAction="#handleCalculate" text="Hitung" />
+                        <Button onAction="#handleSaveFile" text="Simpan Hasil (.txt)" />
+                        <Button onAction="#handleBack" text="Kembali" />
+                    </children>
+                </HBox>
+                <Label text="Output:" />
+                <TextArea fx:id="outputArea" editable="false" prefHeight="90.0" style="-fx-font-family: 'monospaced';" />
+                <Label text="Langkah-langkah:" />
+                <TextArea fx:id="stepsArea" editable="false" prefHeight="200.0" style="-fx-font-family: 'monospaced';" VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+    </bottom>
+</BorderPane>
