@@ -1,0 +1,87 @@
+#ifndef _STRING_H
+#define _STRING_H
+
+#include <stdint.h>
+#include <stddef.h>
+
+/**
+ * C standard memset, check man memset or
+ * https://man7.org/linux/man-pages/man3/memset.3.html for more details
+ * 
+ * @param s Pointer to memory area to set
+ * @param c Constant byte value for filling memory area
+ * @param n Memory area size in byte 
+ * 
+ * @return Pointer s
+*/
+void* memset(void *s, int c, size_t n);
+
+/**
+ * C standard memcpy, check man memcpy or
+ * https://man7.org/linux/man-pages/man3/memcpy.3.html for more details
+ * 
+ * @param dest Starting location for memory area to set
+ * @param src Pointer to source memory
+ * @param n Memory area size in byte 
+ * 
+ * @return Pointer dest
+*/
+void* memcpy(void* restrict dest, const void* restrict src, size_t n);
+
+/**
+ * C standard memcmp, check man memcmp or
+ * https://man7.org/linux/man-pages/man3/memcmp.3.html for more details
+ * 
+ * @param s1 Pointer to first memory area
+ * @param s2 Pointer to second memory area
+ * @param n Memory area size in byte 
+ * 
+ * @return Integer as error code, zero for equality, non-zero for inequality
+*/
+int memcmp(const void *s1, const void *s2, size_t n);
+
+/**
+ * C standard memmove, check man memmove or
+ * https://man7.org/linux/man-pages/man3/memmove.3.html for more details
+ * 
+ * @param dest Pointer to destination memory
+ * @param src Pointer to source memory
+ * @param n Memory area size in byte 
+ * 
+ * @return Pointer dest
+*/
+void *memmove(void *dest, const void *src, size_t n);
+
+/**
+ * C standard strlen, check man strlen or
+ * https://man7.org/linux/man-pages/man3/strlen.3.html for more details
+ * 
+ * @param s Pointer to string
+ * 
+ * @return String length in bytes
+ */
+int strlen(const char *s);
+
+/**
+ * C standard strchr, check man strchr or
+ * https://man7.org/linux/man-pages/man3/strchr.3.html for more details
+ * 
+ * @param s Pointer to string
+ * @param c Character to search for
+ * 
+ * @return Pointer to first occurrence of character c in string s, or NULL if not found
+ */
+char* strchr(const char *s, int c);
+
+/**
+ * C standard strrchr, check man strrchr or
+ * https://man7.org/linux/man-pages/man3/strrchr.3.html for more details
+ * 
+ * @param s Pointer to string
+ * @param c Character to search for
+ * 
+ * @return Pointer to last occurrence of character c in string s, or NULL if not found
+ */
+char* strrchr(const char *s, int c);
+
+#endif

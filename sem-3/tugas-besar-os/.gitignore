@@ -1,0 +1,4 @@
+.kit/
+.vscode/
+*.o
+.gdb_history
