@@ -1,0 +1,4 @@
+comment_id,post_id,author_id,parent_comment_id,content,upvotes,downvotes
+1,P001,USER007,-1,"Wah, tubesnya asik banget!",9,0
+2,P001,USER002,1,"Setuju, bagus untuk eksplorasi nih.",6,2
+3,P001,USER003,2,"Dih, Gaje.",12,-1

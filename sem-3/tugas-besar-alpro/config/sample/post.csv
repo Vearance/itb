@@ -1,0 +1,5 @@
+post_id,subgroddit_id,author_id,title,content,created_at,upvotes,downvotes
+P001,S001,USER001,"Perbedaan BFS dan DFS","Ada yang bisa jelaskan perbedaan dan kasus penggunaan BFS serta DFS?",2025-11-02 21:10,45,3
+P002,S001,USER007,"Cara kerja Topological Sort","Konten untuk post P002...",2025-11-02 21:10,28,1
+P003,S001,USER003,"Optimasi Dijkstra vs A*","Konten untuk post P003...",2025-11-03 21:10,87,2
+P004,S003,USER007,"Best C textbooks?","Konten untuk post P004...",2025-10-31 21:10,18,0

@@ -1,0 +1,8 @@
+user_id,username,password,karma,created_at
+USER001,kebinganteng,pass_kb_123,48,2025-11-01 21:10
+USER002,bob,pass_bob_123,5,2025-11-02 21:10
+USER003,drnefario,pass_nefario_123,100,2025-11-02 21:10
+USER004,minion_dave,pass_dave_123,0,2025-11-03 21:10
+USER005,minion_aved,pass_aved_123,0,2025-11-03 21:10
+USER006,minion_veda,pass_veda_123,0,2025-11-03 21:10
+USER007,alice,pass_alice_123,1249,2025-10-31 21:10

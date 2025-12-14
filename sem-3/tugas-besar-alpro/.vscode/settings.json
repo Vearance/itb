@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "boolean.h": "c",
+        "stdio.h": "c",
+        "linkedlist.h": "c",
+        "database.h": "c",
+        "graph.h": "c",
+        "social.h": "c",
+        "voting.h": "c",
+        "user.h": "c"
+    }
+}
