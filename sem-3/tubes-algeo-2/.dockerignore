@@ -1,0 +1,15 @@
+.git/
+.gitattributes
+.gitignore
+*.md
+docs/
+test/
+LICENSE
+data/covers/
+data/covers_grayscale/
+data/txt/
+data/cache/
+src/backend/venv/
+src/backend/__pycache__/
+src/frontend/node_modules/
+src/frontend/.next/

@@ -1,0 +1,94 @@
+services:
+  data-downloader:
+    image: alpine:latest
+    container_name: data-downloader
+    user: root
+    volumes:
+      - ./data:/data
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        echo "========================================"
+        echo "Checking for dataset..."
+        echo "========================================"
+        
+        if [ -f "/data/mapper.json" ] && [ -d "/data/covers" ] && [ -d "/data/txt" ]; then
+          COVERS_COUNT=$$(find /data/covers -type f -name "*.jpg" 2>/dev/null | wc -l)
+          TXT_COUNT=$$(find /data/txt -type f -name "*.txt" 2>/dev/null | wc -l)
+          
+          if [ "$$COVERS_COUNT" -gt 0 ] && [ "$$TXT_COUNT" -gt 0 ]; then
+            echo "Dataset already exists with $$COVERS_COUNT covers and $$TXT_COUNT text files."
+            echo "Skipping download."
+            exit 0
+          fi
+        fi
+        
+        echo "Installing required packages..."
+        apk add --no-cache curl unzip
+        
+        echo "Downloading dataset from Kaggle..."
+        curl -L -o /tmp/dataset.zip "https://www.kaggle.com/api/v1/datasets/download/nayakazna/project-gutenbergs-book-cover-and-content"
+        
+        echo "Extracting dataset..."
+        unzip -o /tmp/dataset.zip -d /data
+        
+        if [ -d "/data/project-gutenbergs-book-cover-and-content" ]; then
+          mv /data/project-gutenbergs-book-cover-and-content/* /data/ 2>/dev/null || true
+          rmdir /data/project-gutenbergs-book-cover-and-content 2>/dev/null || true
+        fi
+        
+        rm -f /tmp/dataset.zip
+        
+        echo "Setting permissions..."
+        chmod -R 755 /data
+        
+        echo "Dataset ready!"
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./src/backend
+      dockerfile: Dockerfile
+    container_name: backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data:rw
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      data-downloader:
+        condition: service_completed_successfully
+    networks:
+      - app-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  frontend:
+    build:
+      context: ./src/frontend
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8000}
+      - INTERNAL_API_URL=http://backend:8000
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    driver: bridge
