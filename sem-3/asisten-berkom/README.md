@@ -9,7 +9,7 @@ Each student submits a .zip file containing Python scripts.
 .
 ├── grader.py              # Main grading script
 ├── submissions/           # ZIP files from students
-│   ├── 16525113-1-P01_16525113.zip
+│   ├── 16525xxx-1-P01_16525xxx.zip
 │   └── ...
 ├── tests/                 # Test cases and expected outputs
 │   ├── 01/
