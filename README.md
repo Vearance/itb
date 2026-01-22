@@ -2,7 +2,7 @@
 
 A compilation of the little things I do in uni.
 
-## Project Structure
+## Structure
 
 ```
 itb/
