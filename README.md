@@ -18,6 +18,7 @@ itb/
     ├── tubes-algeo-2
     ├── tubes-alpro
     ├── tubes-os
+    ├── tubes-probstat
     └── tubes-rpl
 ```
 
@@ -39,4 +40,5 @@ itb/
 | [tubes-algeo-2](./sem-3/tubes-algeo-2) | Linear Algebra and Geometry (IF2123) |
 | [tubes-alpro](./sem-3/tubes-alpro) | Algorithm and Programming 2 (IF2110) |
 | [tubes-os](./sem-3/tubes-os) | Operating Systems (IF2130) |
+| [tubes-probstat](./sem-3/tubes-probstat) | Probability and Statistics (IF2120) |
 | [tubes-rpl](./sem-3/tubes-rpl) | Software Engineering (IF2150) |
