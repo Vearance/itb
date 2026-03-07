@@ -1,0 +1,47 @@
+hero baru lahir nih, atk: 10 hp: 1000
+Layla udah nongol, atk: 10 hp: 1000
+Layla lagi pake skill, atk: 10 hp: 1000
+hero berhasil di-clone, atk: 10 hp: 1000
+Layla kloningan berhasil muncul, atk: 10 hp: 1000
+hero lagi nyembuhin diri sebanyak 5, atk: 10 hp: 1000
+hero baru lahir nih, atk: 50 hp: 200
+Layla udah nongol, atk: 50 hp: 200
+Layla lagi jalan ke 15,30, atk: 50 hp: 200
+Layla berhasil dicopy, atk: 10 hp: 1000
+hero baru lahir nih, atk: 200 hp: 10
+Tigreal udah nongol, atk: 200 hp: 10
+Tigreal lagi jalan ke 5,15, atk: 200 hp: 10
+Tigreal lagi taunt musuh selama 10 detik, atk: 200 hp: 10
+hero berhasil di-clone, atk: 200 hp: 10
+Tigreal kloningan berhasil muncul, atk: 200 hp: 10
+hero baru lahir nih, atk: 400 hp: 20
+Tigreal udah nongol, atk: 400 hp: 20
+Tigreal pake Sacred Hammer, atk: 400 hp: 20
+hero berhasil di-clone, atk: 400 hp: 20
+Tigreal kloningan berhasil muncul, atk: 400 hp: 20
+Tigreal lagi pake skill, atk: 200 hp: 10
+Tigreal lagi pake skill, atk: 400 hp: 20
+hero baru lahir nih, atk: 300 hp: 15
+Tigreal udah nongol, atk: 300 hp: 15
+Tigreal lagi jalan ke 10,20, atk: 300 hp: 15
+hero berhasil di-clone, atk: 300 hp: 15
+Tigreal kloningan berhasil muncul, atk: 300 hp: 15
+Tigreal lagi taunt musuh selama 5 detik, atk: 300 hp: 15
+Tigreal udah tiada :(, atk: 300 hp: 15
+hero sudah gugur, atk: 300 hp: 15
+Layla udah tiada :(, atk: 10 hp: 1000
+hero sudah gugur, atk: 10 hp: 1000
+Layla udah tiada :(, atk: 10 hp: 1000
+hero sudah gugur, atk: 10 hp: 1000
+Layla udah tiada :(, atk: 10 hp: 1000
+hero sudah gugur, atk: 10 hp: 1000
+Tigreal udah tiada :(, atk: 300 hp: 15
+hero sudah gugur, atk: 300 hp: 15
+Tigreal udah tiada :(, atk: 400 hp: 20
+hero sudah gugur, atk: 400 hp: 20
+Tigreal udah tiada :(, atk: 400 hp: 20
+hero sudah gugur, atk: 400 hp: 20
+Tigreal udah tiada :(, atk: 200 hp: 10
+hero sudah gugur, atk: 200 hp: 10
+Tigreal udah tiada :(, atk: 200 hp: 10
+hero sudah gugur, atk: 200 hp: 10
