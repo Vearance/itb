@@ -11,15 +11,20 @@ itb/
 │   ├── tubes-lidia
 │   └── tubes-logkom
 │
-└── 📂 sem-3/
-    ├── asisten-berkom
-    ├── praktikum-alpro
-    ├── tubes-algeo-1
-    ├── tubes-algeo-2
-    ├── tubes-alpro
-    ├── tubes-os
-    ├── tubes-probstat
-    └── tubes-rpl
+├── 📂 sem-3/
+│   ├── asisten-berkom
+│   ├── praktikum-alpro
+│   ├── tubes-algeo-1
+│   ├── tubes-algeo-2
+│   ├── tubes-alpro
+│   ├── tubes-os
+│   ├── tubes-probstat
+│   └── tubes-rpl
+│
+└── 📂 sem-4/
+    ├── praktikum-oop
+    ├── tubes-stima-1
+    └── tucil-stima-1
 ```
 
 ---
@@ -42,3 +47,10 @@ itb/
 | [tubes-os](./sem-3/tubes-os) | Operating Systems (IF2130) |
 | [tubes-probstat](./sem-3/tubes-probstat) | Probability and Statistics (IF2120) |
 | [tubes-rpl](./sem-3/tubes-rpl) | Software Engineering (IF2150) |
+
+### Semester 4
+| Project | Description |
+|---------|-------------|
+| [praktikum-oop](./sem-4/praktikum-oop) | Object-Oriented Programming Practicum |
+| [tubes-stima-1](./sem-4/tubes-stima-1) | Strategic Management and Artificial Intelligence 1 |
+| [tucil-stima-1](./sem-4/tucil-stima-1) | Strategic Management and Artificial Intelligence 1 Mini Project |
