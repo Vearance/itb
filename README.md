@@ -51,6 +51,6 @@ itb/
 ### Semester 4
 | Project | Description |
 |---------|-------------|
-| [praktikum-oop](./sem-4/praktikum-oop) | Object-Oriented Programming Practicum |
-| [tubes-stima-1](./sem-4/tubes-stima-1) | Strategic Management and Artificial Intelligence 1 |
-| [tucil-stima-1](./sem-4/tucil-stima-1) | Strategic Management and Artificial Intelligence 1 Mini Project |
+| [praktikum-oop](./sem-4/praktikum-oop) | Object-Oriented Programming Practicum (IF2010) |
+| [tubes-stima-1](./sem-4/tubes-stima-1) | Strategy Algorithm (IF2211) |
+| [tucil-stima-1](./sem-4/tucil-stima-1) | Strategy Algorithm (IF2211) |
