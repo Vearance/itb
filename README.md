@@ -24,7 +24,8 @@ itb/
 └── 📂 sem-4/
     ├── praktikum-oop
     ├── tubes-stima-1
-    └── tucil-stima-1
+    ├── tucil-stima-1
+    └── tucil-stima-2
 ```
 
 ---
@@ -54,3 +55,4 @@ itb/
 | [praktikum-oop](./sem-4/praktikum-oop) | Object-Oriented Programming Practicum (IF2010) |
 | [tubes-stima-1](./sem-4/tubes-stima-1) | Strategy Algorithm (IF2211) |
 | [tucil-stima-1](./sem-4/tucil-stima-1) | Strategy Algorithm (IF2211) |
+| [tucil-stima-2](./sem-4/tucil-stima-2) | Strategy Algorithm (IF2211) |
