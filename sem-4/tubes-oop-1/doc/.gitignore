@@ -1,0 +1,6 @@
+# Doxygen generated files
+doxygen/*
+
+# UML artifacts
+*.puml
+*.uml

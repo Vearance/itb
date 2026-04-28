@@ -1,0 +1,25 @@
+Attributes for each file:
+
+1. property.txt
+
+ID KODE NAMA JENIS WARNA HARGA_LAHAN NILAI_GADAI UPG_RUMAH UPG_HT RENT_L0…RENT_L5
+
+2. railroad.txt
+
+JUMLAH_RAILROAD BIAYA_SEWA
+
+3. utility.txt
+
+JUMLAH_UTILITY FAKTOR_PENGALI
+
+4. tax.txt
+
+PPH_FLAT PPH_PERSENTASE PBM_FLAT
+
+5. special.txt
+
+GO_SALARY JAIL_FINE
+
+6. misc.txt
+
+MAX_TURN SALDO_AWAL

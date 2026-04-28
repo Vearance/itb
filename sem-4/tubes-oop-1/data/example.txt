@@ -1,0 +1,34 @@
+1 15 2
+Rasyad 1000 GO ACTIVE 0 0
+Azri 1000 GO ACTIVE 1 LassoCard 0
+Azri Rasyad Azri
+28 GRT street BANK BANK 1 0 0
+TSK street BANK BANK 1 0 0
+GBR railroad BANK BANK 1 0 0
+BGR street BANK BANK 1 0 0
+DPK street BANK BANK 1 0 0
+BKS street BANK BANK 1 0 0
+MGL street BANK BANK 1 0 0
+PLN utility BANK BANK 1 0 0
+SOL street BANK BANK 1 0 0
+YOG street BANK BANK 1 0 0
+STB railroad BANK BANK 1 0 0
+MAL street BANK BANK 1 0 0
+SMG street BANK BANK 1 0 0
+SBY street BANK BANK 1 0 0
+MKS street BANK BANK 1 0 0
+BLP street BANK BANK 1 0 0
+MND street BANK BANK 1 0 0
+TUG railroad BANK BANK 1 0 0
+PLB street BANK BANK 1 0 0
+PKB street BANK BANK 1 0 0
+PAM utility BANK BANK 1 0 0
+MED street BANK BANK 1 0 0
+BDG street BANK BANK 1 0 0
+DEN street BANK BANK 1 0 0
+MTR street BANK BANK 1 0 0
+GUB railroad BANK BANK 1 0 0
+JKT street BANK BANK 1 0 0
+IKN street BANK BANK 1 0 0
+14 MoveCard MoveCard MoveCard MoveCard DiscountCard DiscountCard DiscountCard ShieldCard ShieldCard TeleportCard TeleportCard LassoCard DemolitionCard DemolitionCard
+0

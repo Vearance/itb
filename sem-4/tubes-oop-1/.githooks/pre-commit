@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CLANG_FORMAT=""
+for candidate in clang-format clang-format-18 clang-format-17 clang-format-16 clang-format-15 clang-format-14; do
+    if command -v "$candidate" >/dev/null 2>&1; then
+        CLANG_FORMAT="$candidate"
+        break
+    fi
+done
+
+if [ -z "$CLANG_FORMAT" ]; then
+    echo "Error: clang-format is not installed."
+    echo "Install clang-format and try committing again."
+    exit 1
+fi
+
+mapfile -t staged_files < <(
+    git diff --cached --name-only --diff-filter=ACMR | grep -E '\.(cpp|cc|cxx|hpp|h)$' || true
+)
+
+if [ ${#staged_files[@]} -eq 0 ]; then
+    exit 0
+fi
+
+echo "Running clang-format on staged C/C++ files..."
+for file in "${staged_files[@]}"; do
+    if [ -f "$file" ]; then
+        "$CLANG_FORMAT" -i "$file"
+        git add "$file"
+    fi
+done
+
+echo "Formatting complete."
