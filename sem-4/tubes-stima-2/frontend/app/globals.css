@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-background: #0e0e0e;
+  --color-primary: #96f8ff;
+  --color-primary-dim: #00e2ed;
+  --color-on-primary: #005f64;
+  --color-secondary: #ff59e3;
+  --color-tertiary: #7000ff;
+
+  --color-surface: #0e0e0e;
+  --color-surface-container: #1a1919;
+  --color-surface-container-high: #201f1f;
+  --color-surface-container-highest: #262626;
+  --color-on-surface-variant: #adaaaa;
+
+  --color-outline: #777575;
+  --color-outline-variant: #494847;
+
+  --color-error: #ff716c;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: white;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .scanline-overlay {
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+  }
+
+  .hex-grid {
+    background-image: radial-gradient(var(--color-outline) 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    opacity: 0.05;
+  }
+
+  .clip-corner {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+  }
+}
