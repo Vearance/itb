@@ -58,3 +58,4 @@ itb/
 | [tubes-stima-1](./sem-4/tubes-stima-1) | Strategy Algorithm (IF2211) |
 | [tucil-stima-1](./sem-4/tucil-stima-1) | Strategy Algorithm (IF2211) |
 | [tucil-stima-2](./sem-4/tucil-stima-2) | Strategy Algorithm (IF2211) |
+| [tucil-stima-3](./sem-4/tucil-stima-3) | Strategy Algorithm (IF2211) |

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Solver</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="app">
+  <main class="layout">
+    <aside class="sidebar">
+
+      <section class="group">
+        <h2>Map</h2>
+        <div class="field">
+          <label for="file">File</label>
+          <input id="file" placeholder="No file selected">
+        </div>
+        <div class="btn-row">
+          <button id="browse" class="btn-ghost">Browse</button>
+          <button id="load" class="btn-secondary">Load</button>
+        </div>
+      </section>
+
+      <section class="group">
+        <h2>Search</h2>
+        <div class="field">
+          <label for="algo">Algorithm</label>
+          <select id="algo">
+            <option>UCS</option>
+            <option>BFS</option>
+            <option>GBFS</option>
+            <option selected>A*</option>
+            <option>IDA*</option>
+          </select>
+        </div>
+        <div class="field" id="heur-field">
+          <label for="heur">Heuristic</label>
+          <select id="heur">
+            <option selected>H1 — Manhattan</option>
+            <option>H2 — Euclidean</option>
+            <option>H3 — Chebyshev</option>
+          </select>
+        </div>
+        <button id="solve" class="btn-primary">Run search</button>
+      </section>
+
+      <section class="group">
+        <h2>Result</h2>
+        <dl class="stats">
+          <div><dt>Path</dt><dd id="r-path">—</dd></div>
+          <div><dt>Cost</dt><dd id="r-cost">—</dd></div>
+          <div><dt>Iterations</dt><dd id="r-iter">—</dd></div>
+          <div><dt>Time</dt><dd id="r-time">—</dd></div>
+        </dl>
+      </section>
+
+      <section class="group">
+        <h2>Playback</h2>
+        <div class="step-display" id="step">—</div>
+        <div class="btn-row">
+          <button id="prev" class="btn-ghost">‹ Prev</button>
+          <button id="next" class="btn-ghost">Next ›</button>
+        </div>
+        <div class="btn-row">
+          <button id="play-rev" class="btn-ghost">◀ Play</button>
+          <button id="pause" class="btn-ghost">Pause</button>
+          <button id="play-fwd" class="btn-ghost">Play ▶</button>
+        </div>
+        <div class="field">
+          <label for="speed">Speed: <span id="speed-val">4.0</span> steps/sec</label>
+          <input id="speed" type="range" min="0.5" max="20" step="0.5" value="4">
+        </div>
+        <div class="field">
+          <label for="jumpval">Jump to step</label>
+          <div class="jump-row">
+            <input id="jumpval" type="number" min="0" placeholder="0">
+            <button id="jump" class="btn-secondary">Go</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="group">
+        <h2>Export</h2>
+        <div class="field">
+          <label for="saveval">Default filename</label>
+          <input id="saveval" value="solusi.txt">
+        </div>
+        <button id="save" class="btn-secondary">Save as…</button>
+        <p id="saveresult" class="save-result"></p>
+      </section>
+
+    </aside>
+
+    <section class="canvas">
+      <table id="board" hidden></table>
+      <div id="nopath" class="banner" hidden>No path found</div>
+    </section>
+  </main>
+</div>
+
+<script src="./main.js"></script>
+</body>
+</html>

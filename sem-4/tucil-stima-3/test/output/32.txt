@@ -1,0 +1,13 @@
+Tidak ada solusi yang ditemukan.
+
+Initial
+XXXXXXX
+X0****X
+X**X**X
+X****OX
+X***1LX
+XZ**X*X
+XXXXXXX
+
+Waktu eksekusi: 0.005 ms
+Banyak iterasi yang dilakukan: 15 iterasi
