@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.bananarepublic.ui.controller.CardDialogController" spacing="14" styleClass="dialog-root cards-dialog" prefWidth="800" prefHeight="520">
+    <padding><Insets top="22" right="24" bottom="18" left="24"/></padding>
+    <VBox spacing="2">
+        <Label text="KARTU TEMUAN DR. NEROIFA" styleClass="title cards-dialog-title"/>
+        <Label text="Cards in hand" styleClass="cards-dialog-subtitle"/>
+    </VBox>
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="cards-scroll" VBox.vgrow="ALWAYS">
+        <FlowPane fx:id="cardsBox" hgap="12" vgap="12" prefWrapLength="730" styleClass="cards-row"/>
+    </ScrollPane>
+    <HBox alignment="CENTER_LEFT" styleClass="card-status-bar">
+        <Label fx:id="statusLabel" wrapText="true" styleClass="lobby-status" HBox.hgrow="ALWAYS"/>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Tutup" onAction="#handleCancel"/>
+        <Button fx:id="playSelectedButton" text="Play Selected Card" onAction="#handleConfirm" styleClass="primary-button"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,397 @@
+@startuml
+title Banana Republic master class diagram
+skinparam packageStyle rectangle
+skinparam classAttributeIconSize 0
+hide empty members
+
+package com {
+  package bananarepublic {
+    class "BananaRepublicApp" as type_com_bananarepublic_BananaRepublicApp
+
+    package app {
+      class "AppContext" as type_com_bananarepublic_app_AppContext
+      class "AppInitializer" as type_com_bananarepublic_app_AppInitializer
+      class "ServiceRegistry" as type_com_bananarepublic_app_ServiceRegistry
+    }
+
+    package config {
+      class "BuildCostConfig" as type_com_bananarepublic_config_BuildCostConfig
+      class "CardCostConfig" as type_com_bananarepublic_config_CardCostConfig
+      class "Constants" as type_com_bananarepublic_config_Constants
+      class "GameRules" as type_com_bananarepublic_config_GameRules
+      class "ResourceConfig" as type_com_bananarepublic_config_ResourceConfig
+    }
+
+    package core {
+      package action {
+        class "BuildAction" as type_com_bananarepublic_core_action_BuildAction
+        class "DiscardResourceAction" as type_com_bananarepublic_core_action_DiscardResourceAction
+        class "MoveRobberAction" as type_com_bananarepublic_core_action_MoveRobberAction
+        class "PlayCardAction" as type_com_bananarepublic_core_action_PlayCardAction
+        class "TradeAction" as type_com_bananarepublic_core_action_TradeAction
+      }
+
+      package board {
+        class "Board" as type_com_bananarepublic_core_board_Board
+        class "BoardPosition" as type_com_bananarepublic_core_board_BoardPosition <<record>>
+        class "Harbor" as type_com_bananarepublic_core_board_Harbor
+        enum "HarborType" as type_com_bananarepublic_core_board_HarborType
+        class "HexCoordinate" as type_com_bananarepublic_core_board_HexCoordinate <<record>>
+        class "HexTile" as type_com_bananarepublic_core_board_HexTile
+        class "Intersection" as type_com_bananarepublic_core_board_Intersection
+        class "IntersectionId" as type_com_bananarepublic_core_board_IntersectionId <<record>>
+        class "Path" as type_com_bananarepublic_core_board_Path
+        class "PathId" as type_com_bananarepublic_core_board_PathId <<record>>
+        class "Robber" as type_com_bananarepublic_core_board_Robber
+        enum "TerrainType" as type_com_bananarepublic_core_board_TerrainType
+        class "TokenNumber" as type_com_bananarepublic_core_board_TokenNumber
+
+        package generator {
+          class "BoardGenerationResult" as type_com_bananarepublic_core_board_generator_BoardGenerationResult <<record>>
+          interface "BoardGenerator" as type_com_bananarepublic_core_board_generator_BoardGenerator
+          class "BoardValidator" as type_com_bananarepublic_core_board_generator_BoardValidator
+          class "StandardBoardGenerator" as type_com_bananarepublic_core_board_generator_StandardBoardGenerator
+          class "StandardBoardGenerator.CoastalEdge" as type_com_bananarepublic_core_board_generator_StandardBoardGenerator_CoastalEdge <<record>>
+        }
+      }
+
+      package building {
+        abstract class "AbstractBuilding" as type_com_bananarepublic_core_building_AbstractBuilding
+        class "BuildCost" as type_com_bananarepublic_core_building_BuildCost
+        class "BuildingFactory" as type_com_bananarepublic_core_building_BuildingFactory
+        enum "BuildType" as type_com_bananarepublic_core_building_BuildType
+        class "Laboratory" as type_com_bananarepublic_core_building_Laboratory
+        class "Pipe" as type_com_bananarepublic_core_building_Pipe
+        class "Settlement" as type_com_bananarepublic_core_building_Settlement
+      }
+
+      package card {
+        abstract class "AbstractExperimentCard" as type_com_bananarepublic_core_card_AbstractExperimentCard
+        class "CardFactory" as type_com_bananarepublic_core_card_CardFactory
+        enum "CardType" as type_com_bananarepublic_core_card_CardType
+        class "DevelopmentDeck" as type_com_bananarepublic_core_card_DevelopmentDeck
+        interface "ExperimentCard" as type_com_bananarepublic_core_card_ExperimentCard
+        class "ExperimentCardId" as type_com_bananarepublic_core_card_ExperimentCardId <<record>>
+        class "KnightCard" as type_com_bananarepublic_core_card_KnightCard
+        class "MonopolyCard" as type_com_bananarepublic_core_card_MonopolyCard
+        class "OwnedExperimentCard" as type_com_bananarepublic_core_card_OwnedExperimentCard
+        class "RoadBuildingCard" as type_com_bananarepublic_core_card_RoadBuildingCard
+        class "VictoryPointCard" as type_com_bananarepublic_core_card_VictoryPointCard
+      }
+
+      package dice {
+        class "Dice" as type_com_bananarepublic_core_dice_Dice
+        class "DiceRoll" as type_com_bananarepublic_core_dice_DiceRoll
+        interface "DiceRoller" as type_com_bananarepublic_core_dice_DiceRoller
+        class "ManualDiceRoller" as type_com_bananarepublic_core_dice_ManualDiceRoller
+        class "RandomDiceRoller" as type_com_bananarepublic_core_dice_RandomDiceRoller
+      }
+
+      package game {
+        class "GameEngine" as type_com_bananarepublic_core_game_GameEngine
+        enum "GamePhase" as type_com_bananarepublic_core_game_GamePhase
+        class "GameState" as type_com_bananarepublic_core_game_GameState
+        enum "GameStatus" as type_com_bananarepublic_core_game_GameStatus
+        class "InitialSetupManager" as type_com_bananarepublic_core_game_InitialSetupManager
+        class "TurnManager" as type_com_bananarepublic_core_game_TurnManager
+        class "VictoryManager" as type_com_bananarepublic_core_game_VictoryManager
+      }
+
+      package player {
+        abstract class "AbstractPlayer" as type_com_bananarepublic_core_player_AbstractPlayer
+        class "HumanPlayer" as type_com_bananarepublic_core_player_HumanPlayer
+        interface "Player" as type_com_bananarepublic_core_player_Player
+        class "PlayerCardHand" as type_com_bananarepublic_core_player_PlayerCardHand
+        enum "PlayerColor" as type_com_bananarepublic_core_player_PlayerColor
+        class "PlayerFactory" as type_com_bananarepublic_core_player_PlayerFactory
+        class "PlayerId" as type_com_bananarepublic_core_player_PlayerId
+        class "PlayerInventory" as type_com_bananarepublic_core_player_PlayerInventory
+        class "PlayerScore" as type_com_bananarepublic_core_player_PlayerScore
+        class "PlayerStats" as type_com_bananarepublic_core_player_PlayerStats
+        class "PlayerSupply" as type_com_bananarepublic_core_player_PlayerSupply
+      }
+
+      package resource {
+        class "ResourceBank" as type_com_bananarepublic_core_resource_ResourceBank
+        class "ResourceBundle" as type_com_bananarepublic_core_resource_ResourceBundle
+        class "ResourceCard" as type_com_bananarepublic_core_resource_ResourceCard
+        class "ResourceTransaction" as type_com_bananarepublic_core_resource_ResourceTransaction
+        enum "ResourceType" as type_com_bananarepublic_core_resource_ResourceType
+      }
+    }
+
+    package data {
+      class "SaveData" as type_com_bananarepublic_data_SaveData <<record>>
+      class "SaveData.BankData" as type_com_bananarepublic_data_SaveData_BankData <<record>>
+      class "SaveData.BoardData" as type_com_bananarepublic_data_SaveData_BoardData <<record>>
+      class "SaveData.BuildingData" as type_com_bananarepublic_data_SaveData_BuildingData <<record>>
+      class "SaveData.DeckData" as type_com_bananarepublic_data_SaveData_DeckData <<record>>
+      class "SaveData.HarborData" as type_com_bananarepublic_data_SaveData_HarborData <<record>>
+      class "SaveData.HexTileData" as type_com_bananarepublic_data_SaveData_HexTileData <<record>>
+      class "SaveData.IntersectionData" as type_com_bananarepublic_data_SaveData_IntersectionData <<record>>
+      class "SaveData.OwnedCardData" as type_com_bananarepublic_data_SaveData_OwnedCardData <<record>>
+      class "SaveData.PathData" as type_com_bananarepublic_data_SaveData_PathData <<record>>
+      class "SaveData.PlayerData" as type_com_bananarepublic_data_SaveData_PlayerData <<record>>
+    }
+
+    package event {
+      class "BuildingPlacedEvent" as type_com_bananarepublic_event_BuildingPlacedEvent <<record>>
+      class "BuildingUpgradedEvent" as type_com_bananarepublic_event_BuildingUpgradedEvent <<record>>
+      class "CardBoughtEvent" as type_com_bananarepublic_event_CardBoughtEvent <<record>>
+      class "CardPlayedEvent" as type_com_bananarepublic_event_CardPlayedEvent <<record>>
+      class "DiceRolledEvent" as type_com_bananarepublic_event_DiceRolledEvent <<record>>
+      interface "GameEvent" as type_com_bananarepublic_event_GameEvent
+      class "GameEventBus" as type_com_bananarepublic_event_GameEventBus
+      interface "GameEventListener" as type_com_bananarepublic_event_GameEventListener
+      class "GameWonEvent" as type_com_bananarepublic_event_GameWonEvent <<record>>
+      class "PhaseChangedEvent" as type_com_bananarepublic_event_PhaseChangedEvent <<record>>
+      class "PlayerTurnEndedEvent" as type_com_bananarepublic_event_PlayerTurnEndedEvent <<record>>
+      class "PlayerTurnStartedEvent" as type_com_bananarepublic_event_PlayerTurnStartedEvent <<record>>
+      class "PluginLoadedEvent" as type_com_bananarepublic_event_PluginLoadedEvent <<record>>
+      class "ResourceChangedEvent" as type_com_bananarepublic_event_ResourceChangedEvent <<record>>
+      class "ResourceDiscardedEvent" as type_com_bananarepublic_event_ResourceDiscardedEvent <<record>>
+      class "ResourceProducedEvent" as type_com_bananarepublic_event_ResourceProducedEvent <<record>>
+      class "ResourceStolenEvent" as type_com_bananarepublic_event_ResourceStolenEvent <<record>>
+      class "RobberMovedEvent" as type_com_bananarepublic_event_RobberMovedEvent <<record>>
+      class "TimerExpiredEvent" as type_com_bananarepublic_event_TimerExpiredEvent <<record>>
+      class "TimerStartedEvent" as type_com_bananarepublic_event_TimerStartedEvent <<record>>
+      class "TimerTickEvent" as type_com_bananarepublic_event_TimerTickEvent <<record>>
+      class "TradeCompletedEvent" as type_com_bananarepublic_event_TradeCompletedEvent <<record>>
+      class "TradeRejectedEvent" as type_com_bananarepublic_event_TradeRejectedEvent <<record>>
+      class "TradeRequestedEvent" as type_com_bananarepublic_event_TradeRequestedEvent <<record>>
+    }
+
+    package exception {
+      class "GameException" as type_com_bananarepublic_exception_GameException
+
+      package build {
+        class "BuildingLimitExceededException" as type_com_bananarepublic_exception_build_BuildingLimitExceededException
+        class "IntersectionOccupiedException" as type_com_bananarepublic_exception_build_IntersectionOccupiedException
+        class "InvalidBuildException" as type_com_bananarepublic_exception_build_InvalidBuildException
+        class "InvalidPlacementException" as type_com_bananarepublic_exception_build_InvalidPlacementException
+        class "PathOccupiedException" as type_com_bananarepublic_exception_build_PathOccupiedException
+      }
+
+      package card {
+        class "CardAlreadyPlayedException" as type_com_bananarepublic_exception_card_CardAlreadyPlayedException
+        class "CardNotOwnedException" as type_com_bananarepublic_exception_card_CardNotOwnedException
+        class "DeckEmptyException" as type_com_bananarepublic_exception_card_DeckEmptyException
+        class "InvalidCardPlayException" as type_com_bananarepublic_exception_card_InvalidCardPlayException
+      }
+
+      package plugin {
+        class "InvalidPluginException" as type_com_bananarepublic_exception_plugin_InvalidPluginException
+        class "PluginException" as type_com_bananarepublic_exception_plugin_PluginException
+        class "PluginLoadException" as type_com_bananarepublic_exception_plugin_PluginLoadException
+        class "PluginValidationException" as type_com_bananarepublic_exception_plugin_PluginValidationException
+      }
+
+      package resource {
+        class "InsufficientResourceException" as type_com_bananarepublic_exception_resource_InsufficientResourceException
+      }
+
+      package rule {
+        class "InvalidPhaseException" as type_com_bananarepublic_exception_rule_InvalidPhaseException
+        class "InvalidTurnException" as type_com_bananarepublic_exception_rule_InvalidTurnException
+        class "VictoryConditionException" as type_com_bananarepublic_exception_rule_VictoryConditionException
+      }
+
+      package trade {
+        class "InvalidHarborTradeException" as type_com_bananarepublic_exception_trade_InvalidHarborTradeException
+        class "InvalidTradeException" as type_com_bananarepublic_exception_trade_InvalidTradeException
+        class "TradeRejectedException" as type_com_bananarepublic_exception_trade_TradeRejectedException
+      }
+    }
+
+    package listener {
+      class "BoardChangeListener" as type_com_bananarepublic_listener_BoardChangeListener
+      class "CardChangeListener" as type_com_bananarepublic_listener_CardChangeListener
+      class "GameResultListener" as type_com_bananarepublic_listener_GameResultListener
+      class "PhaseChangeListener" as type_com_bananarepublic_listener_PhaseChangeListener
+      class "PluginListener" as type_com_bananarepublic_listener_PluginListener
+      class "ResourceChangeListener" as type_com_bananarepublic_listener_ResourceChangeListener
+      class "TimerListener" as type_com_bananarepublic_listener_TimerListener
+      class "TradeListener" as type_com_bananarepublic_listener_TradeListener
+      class "TurnChangeListener" as type_com_bananarepublic_listener_TurnChangeListener
+    }
+
+    package plugin {
+      class "JarClassScanner" as type_com_bananarepublic_plugin_JarClassScanner
+      interface "Plugin" as type_com_bananarepublic_plugin_Plugin
+      interface "PluginLoader" as type_com_bananarepublic_plugin_PluginLoader
+      class "PluginMetadata" as type_com_bananarepublic_plugin_PluginMetadata <<record>>
+      class "PluginRegistry" as type_com_bananarepublic_plugin_PluginRegistry
+      class "PluginValidator" as type_com_bananarepublic_plugin_PluginValidator
+
+      package card {
+        class "ExperimentCardPlugin" as type_com_bananarepublic_plugin_card_ExperimentCardPlugin
+        class "ExperimentCardPluginLoader" as type_com_bananarepublic_plugin_card_ExperimentCardPluginLoader
+      }
+    }
+
+    package service {
+      class "BuildService" as type_com_bananarepublic_service_BuildService
+      class "CardService" as type_com_bananarepublic_service_CardService
+      class "DiceService" as type_com_bananarepublic_service_DiceService
+      class "DiscardService" as type_com_bananarepublic_service_DiscardService
+      class "HarborTradeService" as type_com_bananarepublic_service_HarborTradeService
+      class "InitialSetupService" as type_com_bananarepublic_service_InitialSetupService
+      class "LargestArmyService" as type_com_bananarepublic_service_LargestArmyService
+      class "LongestRoadService" as type_com_bananarepublic_service_LongestRoadService
+      class "NormalTradeService" as type_com_bananarepublic_service_NormalTradeService
+      class "PersistenceService" as type_com_bananarepublic_service_PersistenceService
+      class "PersistenceService.SavedGame" as type_com_bananarepublic_service_PersistenceService_SavedGame <<record>>
+      class "ResourceProductionService" as type_com_bananarepublic_service_ResourceProductionService
+      class "ResourceProductionService.ProductionEntry" as type_com_bananarepublic_service_ResourceProductionService_ProductionEntry <<record>>
+      class "RobberService" as type_com_bananarepublic_service_RobberService
+      class "ScoreService" as type_com_bananarepublic_service_ScoreService
+      class "StealService" as type_com_bananarepublic_service_StealService
+      class "TradeService" as type_com_bananarepublic_service_TradeService
+      class "VictoryPointService" as type_com_bananarepublic_service_VictoryPointService
+    }
+
+    package timer {
+      class "CountdownTimer" as type_com_bananarepublic_timer_CountdownTimer
+      enum "TimerState" as type_com_bananarepublic_timer_TimerState
+      class "TimerTaskRunner" as type_com_bananarepublic_timer_TimerTaskRunner
+      class "TurnTimer" as type_com_bananarepublic_timer_TurnTimer
+    }
+
+    package ui {
+      package component {
+        class "BoardView" as type_com_bananarepublic_ui_component_BoardView
+        class "BoardView.BoundsTransform" as type_com_bananarepublic_ui_component_BoardView_BoundsTransform <<record>>
+        class "DiceView" as type_com_bananarepublic_ui_component_DiceView
+        class "ExperimentCardView" as type_com_bananarepublic_ui_component_ExperimentCardView
+        class "HexTileView" as type_com_bananarepublic_ui_component_HexTileView
+        class "IntersectionView" as type_com_bananarepublic_ui_component_IntersectionView
+        class "PathView" as type_com_bananarepublic_ui_component_PathView
+        class "PlayerPanelView" as type_com_bananarepublic_ui_component_PlayerPanelView
+        class "ResourceCardView" as type_com_bananarepublic_ui_component_ResourceCardView
+        class "TimerView" as type_com_bananarepublic_ui_component_TimerView
+      }
+
+      package controller {
+        class "CardDialogController" as type_com_bananarepublic_ui_controller_CardDialogController
+        class "DiscardDialogController" as type_com_bananarepublic_ui_controller_DiscardDialogController
+        class "GameController" as type_com_bananarepublic_ui_controller_GameController
+        enum "GameController.BuildMode" as type_com_bananarepublic_ui_controller_GameController_BuildMode
+        class "GameResultController" as type_com_bananarepublic_ui_controller_GameResultController
+        class "GameResultController.ResultRow" as type_com_bananarepublic_ui_controller_GameResultController_ResultRow <<record>>
+        class "LobbyController" as type_com_bananarepublic_ui_controller_LobbyController
+        class "MainMenuController" as type_com_bananarepublic_ui_controller_MainMenuController
+        class "SettingsPluginController" as type_com_bananarepublic_ui_controller_SettingsPluginController
+        class "StealCardDialogController" as type_com_bananarepublic_ui_controller_StealCardDialogController
+        class "TradeDialogController" as type_com_bananarepublic_ui_controller_TradeDialogController
+        class "TurnTransitionController" as type_com_bananarepublic_ui_controller_TurnTransitionController
+        class "VictoryDialogController" as type_com_bananarepublic_ui_controller_VictoryDialogController
+      }
+
+      package mapper {
+        class "BoardUiMapper" as type_com_bananarepublic_ui_mapper_BoardUiMapper
+        class "CardUiMapper" as type_com_bananarepublic_ui_mapper_CardUiMapper
+        class "PlayerUiMapper" as type_com_bananarepublic_ui_mapper_PlayerUiMapper
+        class "ResourceUiMapper" as type_com_bananarepublic_ui_mapper_ResourceUiMapper
+        class "TradeUiMapper" as type_com_bananarepublic_ui_mapper_TradeUiMapper
+      }
+
+      package router {
+        class "DialogManager" as type_com_bananarepublic_ui_router_DialogManager
+        class "SceneManager" as type_com_bananarepublic_ui_router_SceneManager
+        class "ViewLoader" as type_com_bananarepublic_ui_router_ViewLoader
+      }
+
+      package util {
+        class "AlertUtil" as type_com_bananarepublic_ui_util_AlertUtil
+        class "CssUtil" as type_com_bananarepublic_ui_util_CssUtil
+        class "FxThreadUtil" as type_com_bananarepublic_ui_util_FxThreadUtil
+      }
+
+      package viewmodel {
+        class "BoardViewModel" as type_com_bananarepublic_ui_viewmodel_BoardViewModel
+        class "CardViewModel" as type_com_bananarepublic_ui_viewmodel_CardViewModel
+        class "GameViewModel" as type_com_bananarepublic_ui_viewmodel_GameViewModel
+        class "HexTileViewModel" as type_com_bananarepublic_ui_viewmodel_HexTileViewModel
+        class "PlayerViewModel" as type_com_bananarepublic_ui_viewmodel_PlayerViewModel
+        class "ResourceViewModel" as type_com_bananarepublic_ui_viewmodel_ResourceViewModel
+        class "TimerViewModel" as type_com_bananarepublic_ui_viewmodel_TimerViewModel
+        class "TradeViewModel" as type_com_bananarepublic_ui_viewmodel_TradeViewModel
+      }
+    }
+
+    package validator {
+      class "BuildValidator" as type_com_bananarepublic_validator_BuildValidator
+      class "CardPlayValidator" as type_com_bananarepublic_validator_CardPlayValidator
+      class "DiceValidator" as type_com_bananarepublic_validator_DiceValidator
+      class "ResourceValidator" as type_com_bananarepublic_validator_ResourceValidator
+      class "RobberValidator" as type_com_bananarepublic_validator_RobberValidator
+      class "TradeValidator" as type_com_bananarepublic_validator_TradeValidator
+      class "TurnValidator" as type_com_bananarepublic_validator_TurnValidator
+    }
+  }
+}
+
+type_com_bananarepublic_core_board_generator_StandardBoardGenerator ..|> type_com_bananarepublic_core_board_generator_BoardGenerator
+type_com_bananarepublic_core_building_Laboratory --|> type_com_bananarepublic_core_building_AbstractBuilding
+type_com_bananarepublic_core_building_Pipe --|> type_com_bananarepublic_core_building_AbstractBuilding
+type_com_bananarepublic_core_building_Settlement --|> type_com_bananarepublic_core_building_AbstractBuilding
+type_com_bananarepublic_core_card_AbstractExperimentCard ..|> type_com_bananarepublic_core_card_ExperimentCard
+type_com_bananarepublic_core_card_KnightCard --|> type_com_bananarepublic_core_card_AbstractExperimentCard
+type_com_bananarepublic_core_card_MonopolyCard --|> type_com_bananarepublic_core_card_AbstractExperimentCard
+type_com_bananarepublic_core_card_RoadBuildingCard --|> type_com_bananarepublic_core_card_AbstractExperimentCard
+type_com_bananarepublic_core_card_VictoryPointCard --|> type_com_bananarepublic_core_card_AbstractExperimentCard
+type_com_bananarepublic_core_dice_ManualDiceRoller ..|> type_com_bananarepublic_core_dice_DiceRoller
+type_com_bananarepublic_core_dice_RandomDiceRoller ..|> type_com_bananarepublic_core_dice_DiceRoller
+type_com_bananarepublic_core_player_AbstractPlayer ..|> type_com_bananarepublic_core_player_Player
+type_com_bananarepublic_core_player_HumanPlayer --|> type_com_bananarepublic_core_player_AbstractPlayer
+type_com_bananarepublic_event_BuildingPlacedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_BuildingUpgradedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_CardBoughtEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_CardPlayedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_DiceRolledEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_GameWonEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_PhaseChangedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_PlayerTurnEndedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_PlayerTurnStartedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_PluginLoadedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_ResourceChangedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_ResourceDiscardedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_ResourceProducedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_ResourceStolenEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_RobberMovedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_TimerExpiredEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_TimerStartedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_TimerTickEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_TradeCompletedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_TradeRejectedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_event_TradeRequestedEvent ..|> type_com_bananarepublic_event_GameEvent
+type_com_bananarepublic_exception_build_BuildingLimitExceededException --|> type_com_bananarepublic_exception_build_InvalidBuildException
+type_com_bananarepublic_exception_build_IntersectionOccupiedException --|> type_com_bananarepublic_exception_build_InvalidPlacementException
+type_com_bananarepublic_exception_build_InvalidBuildException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_build_InvalidPlacementException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_build_PathOccupiedException --|> type_com_bananarepublic_exception_build_InvalidPlacementException
+type_com_bananarepublic_exception_card_CardAlreadyPlayedException --|> type_com_bananarepublic_exception_card_InvalidCardPlayException
+type_com_bananarepublic_exception_card_CardNotOwnedException --|> type_com_bananarepublic_exception_card_InvalidCardPlayException
+type_com_bananarepublic_exception_card_DeckEmptyException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_card_InvalidCardPlayException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_plugin_InvalidPluginException --|> type_com_bananarepublic_exception_plugin_PluginException
+type_com_bananarepublic_exception_plugin_PluginException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_plugin_PluginLoadException --|> type_com_bananarepublic_exception_plugin_PluginException
+type_com_bananarepublic_exception_plugin_PluginValidationException --|> type_com_bananarepublic_exception_plugin_PluginException
+type_com_bananarepublic_exception_resource_InsufficientResourceException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_rule_InvalidPhaseException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_rule_InvalidTurnException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_rule_VictoryConditionException --|> type_com_bananarepublic_exception_GameException
+type_com_bananarepublic_exception_trade_InvalidHarborTradeException --|> type_com_bananarepublic_exception_trade_InvalidTradeException
+type_com_bananarepublic_listener_BoardChangeListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_listener_CardChangeListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_listener_GameResultListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_listener_PhaseChangeListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_listener_PluginListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_listener_ResourceChangeListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_listener_TimerListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_listener_TradeListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_listener_TurnChangeListener ..|> type_com_bananarepublic_event_GameEventListener
+type_com_bananarepublic_plugin_card_ExperimentCardPlugin ..|> type_com_bananarepublic_plugin_Plugin
+type_com_bananarepublic_plugin_card_ExperimentCardPluginLoader ..|> type_com_bananarepublic_plugin_PluginLoader
+@enduml

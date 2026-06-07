@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.bananarepublic.ui.controller.TurnTransitionController" alignment="CENTER" spacing="18" styleClass="turn-transition-screen">
+    <padding><Insets top="80" right="80" bottom="80" left="80"/></padding>
+    <Label text="BANANA REPUBLIC" styleClass="title"/>
+    <Label text="Turn Complete" styleClass="section-title"/>
+    <Label fx:id="messageLabel" text="Turn completed, awaiting next player's turn. Please pass the device to the next player." wrapText="true" maxWidth="560" styleClass="transition-message"/>
+    <Button text="I AM READY, START MY TURN" onAction="#handleViewBoard" styleClass="primary-button"/>
+</VBox>

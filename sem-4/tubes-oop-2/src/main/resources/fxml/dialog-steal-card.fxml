@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.bananarepublic.ui.controller.StealCardDialogController" spacing="16" styleClass="dialog-root" prefWidth="520" prefHeight="360">
+    <padding><Insets top="24" right="28" bottom="22" left="28"/></padding>
+    <Label text="RESOURCE THEFT" styleClass="title"/>
+    <Label text="Select a player to steal from" styleClass="section-title"/>
+    <VBox fx:id="targetBox" spacing="10"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel"/>
+        <Button text="Confirm Steal" onAction="#handleConfirm" styleClass="primary-button"/>
+    </HBox>
+</VBox>

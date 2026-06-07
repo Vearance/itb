@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.bananarepublic.ui.controller.VictoryDialogController" spacing="14" styleClass="dialog-root" prefWidth="560" prefHeight="430">
+    <padding><Insets top="24" right="28" bottom="22" left="28"/></padding>
+    <Label text="YOU HAVE REACHED 10 VICTORY POINTS!" styleClass="title"/>
+    <HBox spacing="14" alignment="CENTER">
+        <VBox alignment="CENTER" styleClass="score-box"><Label text="PUBLIC POINTS"/><Label fx:id="publicPointsLabel" text="0" styleClass="resource-amount"/></VBox>
+        <VBox alignment="CENTER" styleClass="score-box"><Label text="SECRET CARD POINTS"/><Label fx:id="secretPointsLabel" text="0" styleClass="resource-amount"/></VBox>
+    </HBox>
+    <VBox fx:id="secretCardBox" spacing="8"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel"/>
+        <Button text="Declare Victory" onAction="#handleConfirm" styleClass="primary-button"/>
+    </HBox>
+</VBox>

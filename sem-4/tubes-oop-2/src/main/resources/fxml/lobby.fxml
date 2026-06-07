@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.bananarepublic.ui.controller.LobbyController"
+      styleClass="lobby-shell">
+    <children>
+        <StackPane VBox.vgrow="ALWAYS" styleClass="lobby-pattern">
+            <padding>
+                <Insets top="86" right="64" bottom="86" left="64"/>
+            </padding>
+
+            <HBox alignment="CENTER" maxWidth="920" minHeight="390" styleClass="setup-card">
+                <children>
+                    <VBox prefWidth="450" spacing="18" styleClass="setup-column">
+                        <padding>
+                            <Insets top="42" right="38" bottom="38" left="38"/>
+                        </padding>
+                        <children>
+                            <Label text="SESSION SETUP" styleClass="panel-title"/>
+
+                            <VBox spacing="8">
+                                <children>
+                                    <Label text="NUMBER OF PLAYERS" styleClass="field-label"/>
+                                    <ComboBox fx:id="playerCountComboBox"
+                                              maxWidth="Infinity"
+                                              prefHeight="48"
+                                              styleClass="setup-combo"/>
+                                </children>
+                            </VBox>
+
+                            <VBox spacing="8">
+                                <children>
+                                    <Label text="PLAYERS NAME" styleClass="field-label"/>
+
+                                    <VBox spacing="8">
+                                        <children>
+                                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="player-row">
+                                                <children>
+                                                    <TextField fx:id="playerOneField"
+                                                               promptText="Enter Name..."
+                                                               prefHeight="34"
+                                                               prefWidth="245"
+                                                               maxWidth="245"
+                                                               styleClass="player-name-field"/>
+                                                    <HBox alignment="CENTER_LEFT" spacing="6" minWidth="82" prefWidth="82" maxWidth="82" fx:id="colorOneRow" styleClass="color-row">
+                                                        <children>
+                                                            <Circle radius="7" stroke="#8b641e" strokeWidth="2" fill="#c61f18" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#006aa6" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#eba21a" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#fffdf8" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                        </children>
+                                                    </HBox>
+                                                </children>
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="player-row">
+                                                <children>
+                                                    <TextField fx:id="playerTwoField"
+                                                               promptText="Enter Name..."
+                                                               prefHeight="34"
+                                                               prefWidth="245"
+                                                               maxWidth="245"
+                                                               styleClass="player-name-field"/>
+                                                    <HBox alignment="CENTER_LEFT" spacing="6" minWidth="82" prefWidth="82" maxWidth="82" fx:id="colorTwoRow" styleClass="color-row">
+                                                        <children>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#c61f18" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#8b641e" strokeWidth="2" fill="#006aa6" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#eba21a" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#fffdf8" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                        </children>
+                                                    </HBox>
+                                                </children>
+                                            </HBox>
+
+                                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="player-row">
+                                                <children>
+                                                    <TextField fx:id="playerThreeField"
+                                                               promptText="Enter Name..."
+                                                               prefHeight="34"
+                                                               prefWidth="245"
+                                                               maxWidth="245"
+                                                               styleClass="player-name-field"/>
+                                                    <HBox alignment="CENTER_LEFT" spacing="6" minWidth="82" prefWidth="82" maxWidth="82" fx:id="colorThreeRow" styleClass="color-row">
+                                                        <children>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#c61f18" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#006aa6" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#8b641e" strokeWidth="2" fill="#eba21a" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#fffdf8" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                        </children>
+                                                    </HBox>
+                                                </children>
+                                            </HBox>
+
+                                            <HBox fx:id="playerFourRow" alignment="CENTER_LEFT" spacing="10" styleClass="player-row">
+                                                <children>
+                                                    <TextField fx:id="playerFourField"
+                                                               promptText="Enter Name..."
+                                                               prefHeight="34"
+                                                               prefWidth="245"
+                                                               maxWidth="245"
+                                                               styleClass="player-name-field"/>
+                                                    <HBox alignment="CENTER_LEFT" spacing="6" minWidth="82" prefWidth="82" maxWidth="82" fx:id="colorFourRow" styleClass="color-row">
+                                                        <children>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#c61f18" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#006aa6" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#cbbda7" strokeWidth="1" fill="#eba21a" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                            <Circle radius="7" stroke="#8b641e" strokeWidth="2" fill="#fffdf8" onMouseClicked="#handleColorClick" styleClass="color-choice"/>
+                                                        </children>
+                                                    </HBox>
+                                                </children>
+                                            </HBox>
+                                        </children>
+                                    </VBox>
+                                </children>
+                            </VBox>
+
+                            <Button text="Back" onAction="#handleBack" styleClass="back-link"/>
+                        </children>
+                    </VBox>
+
+                    <Region prefWidth="1" maxWidth="1" styleClass="card-divider"/>
+
+                    <VBox prefWidth="450" spacing="18" styleClass="setup-column">
+                        <padding>
+                            <Insets top="42" right="38" bottom="38" left="38"/>
+                        </padding>
+                        <children>
+                            <Label text="BOT PLAYER" styleClass="panel-title"/>
+
+                            <VBox spacing="9">
+                                <children>
+                                    <Label text="BOT" styleClass="field-label"/>
+                                    <Button onAction="#handleBotPlugin" maxWidth="Infinity" prefHeight="84" styleClass="plugin-drop">
+                                        <graphic>
+                                            <HBox alignment="CENTER_LEFT" spacing="12">
+                                                <children>
+                                                    <Label text="Bot" styleClass="plugin-icon"/>
+                                                    <Label text="Load Bot Plugin (.jar)" styleClass="plugin-text"/>
+                                                    <Region minWidth="18" HBox.hgrow="ALWAYS"/>
+                                                    <Label text="+" styleClass="plugin-plus"/>
+                                                </children>
+                                            </HBox>
+                                        </graphic>
+                                    </Button>
+                                </children>
+                            </VBox>
+
+                            <Region VBox.vgrow="ALWAYS"/>
+                            <Button text="START GAME" onAction="#handleStartGame" alignment="CENTER" prefWidth="220" prefHeight="56" styleClass="start-game-button"/>
+                            <Label fx:id="statusLabel" wrapText="true" maxWidth="260" styleClass="lobby-status"/>
+                        </children>
+                    </VBox>
+                </children>
+            </HBox>
+        </StackPane>
+    </children>
+</VBox>

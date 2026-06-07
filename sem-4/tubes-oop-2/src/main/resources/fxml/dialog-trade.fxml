@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox fx:id="root" xmlns:fx="http://javafx.com/fxml" fx:controller="com.bananarepublic.ui.controller.TradeDialogController" spacing="14" styleClass="dialog-root" prefWidth="760" prefHeight="560">
+    <padding><Insets top="24" right="28" bottom="22" left="28"/></padding>
+    <Label text="TRADE RESOURCES" styleClass="title"/>
+    <Label text="I want to give" styleClass="section-title"/>
+    <HBox fx:id="giveBox" spacing="10"/>
+    <Label text="I want to receive" styleClass="section-title"/>
+    <HBox fx:id="receiveBox" spacing="10"/>
+    <Label text="Offer to" styleClass="section-title"/>
+    <ComboBox fx:id="targetCombo" prefWidth="260"/>
+    <Label fx:id="validationLabel" wrapText="true" styleClass="lobby-status"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel"/>
+        <Button text="Trade" onAction="#handleConfirm" styleClass="primary-button"/>
+    </HBox>
+</VBox>

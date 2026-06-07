@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.bananarepublic.ui.controller.SettingsPluginController" spacing="14" alignment="CENTER_LEFT" styleClass="dialog-root settings-dialog" prefWidth="460" prefHeight="340">
+    <padding><Insets top="24" right="28" bottom="24" left="28"/></padding>
+    <Label text="Settings &amp; Plugins" styleClass="title"/>
+
+    <VBox spacing="8" maxWidth="Infinity" styleClass="settings-section">
+        <HBox alignment="CENTER_LEFT" spacing="8">
+            <Label text="MUSIC VOLUME" styleClass="field-label" HBox.hgrow="ALWAYS"/>
+            <Label fx:id="musicVolumeValueLabel" text="45%" styleClass="settings-value-label"/>
+        </HBox>
+        <Slider fx:id="musicVolumeSlider" maxWidth="Infinity"/>
+    </VBox>
+
+    <Button text="Save Current Game" onAction="#handleSave" maxWidth="Infinity"/>
+    <Button text="Load Card Plugin (.jar)" onAction="#handleLoadPlugin" maxWidth="Infinity"/>
+    <Button text="Close" onAction="#handleClose" maxWidth="Infinity"/>
+</VBox>

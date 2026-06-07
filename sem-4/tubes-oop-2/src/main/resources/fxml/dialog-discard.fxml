@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.bananarepublic.ui.controller.DiscardDialogController" spacing="16" styleClass="dialog-root" prefWidth="620" prefHeight="420">
+    <padding><Insets top="24" right="28" bottom="22" left="28"/></padding>
+    <Label text="⚠ HAND LIMIT EXCEEDED" styleClass="danger-title"/>
+    <Label text="Pemain dengan lebih dari 7 kartu harus membuang setengah kartunya ketika dadu bernilai 7." wrapText="true"/>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Player:"/>
+        <ComboBox fx:id="playerComboBox" prefWidth="240"/>
+    </HBox>
+    <Label fx:id="counterLabel" text="0/0 cards selected" styleClass="section-title"/>
+    <HBox fx:id="resourceRows" spacing="10" alignment="CENTER"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel"/>
+        <Button text="Confirm Discard" onAction="#handleConfirm" styleClass="primary-button"/>
+    </HBox>
+</VBox>

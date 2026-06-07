@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import com.bananarepublic.ui.component.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.bananarepublic.ui.controller.GameController" fx:id="root" styleClass="game-screen">
+    <center>
+        <StackPane styleClass="board-shell">
+            <BoardView fx:id="boardView"/>
+            <VBox fx:id="boardHud" alignment="TOP_LEFT" spacing="4" maxWidth="-Infinity" maxHeight="-Infinity" pickOnBounds="false" styleClass="board-hud" StackPane.alignment="TOP_LEFT">
+                <StackPane.margin>
+                    <Insets top="8" right="20" bottom="20" left="8"/>
+                </StackPane.margin>
+                <VBox alignment="TOP_LEFT" spacing="0">
+                    <HBox alignment="CENTER_LEFT" spacing="3">
+                        <Label text="Turn" styleClass="hud-text"/>
+                        <Label fx:id="currentPlayerLabel" styleClass="hud-turn-number"/>
+                    </HBox>
+                    <Label fx:id="roundLabel" styleClass="hud-text"/>
+                </VBox>
+                <HBox alignment="CENTER_LEFT" spacing="6">
+                    <Button fx:id="rollDiceButton" text="Roll Dice" onAction="#handleRollDice" styleClass="primary-button"/>
+                    <Button fx:id="manualDiceButton" text="Manual Dice" onAction="#handleManualDice"/>
+                </HBox>
+            </VBox>
+            <VBox spacing="5" prefWidth="250" prefHeight="118" maxWidth="250" maxHeight="118" styleClass="board-logbook-card" StackPane.alignment="TOP_RIGHT">
+                <StackPane.margin>
+                    <Insets top="8" right="10" bottom="20" left="20"/>
+                </StackPane.margin>
+                <Label text="LOGBOOK" styleClass="section-title"/>
+                <TextArea fx:id="logArea" editable="false" wrapText="true" VBox.vgrow="ALWAYS" styleClass="log-area"/>
+            </VBox>
+            <DiceView fx:id="diceView" maxWidth="-Infinity" maxHeight="-Infinity" pickOnBounds="false" styleClass="board-dice-overlay" StackPane.alignment="BOTTOM_RIGHT">
+                <StackPane.margin>
+                    <Insets top="20" right="30" bottom="28" left="20"/>
+                </StackPane.margin>
+            </DiceView>
+        </StackPane>
+    </center>
+    <right>
+        <VBox spacing="16" prefWidth="270" styleClass="right-sidebar">
+            <VBox spacing="6" styleClass="bank-resources-card">
+                <Label text="BANK" styleClass="section-title"/>
+                <FlowPane fx:id="bankResourcePanel" alignment="CENTER_LEFT" hgap="6" vgap="6" styleClass="bank-resource-grid"/>
+            </VBox>
+            <VBox fx:id="playerPanel" spacing="10"/>
+        </VBox>
+    </right>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="game-footer">
+            <HBox fx:id="resourcePanel" spacing="8" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS"/>
+            <FlowPane alignment="CENTER_RIGHT" hgap="8" vgap="8" prefWrapLength="620" styleClass="game-actions">
+                <Button fx:id="buildSettlementButton" onAction="#handleBuildSettlement" styleClass="icon-button"/>
+                <Button fx:id="buildPipeButton" onAction="#handleBuildPipe" styleClass="icon-button"/>
+                <Button fx:id="upgradeLabButton" text="Lab" onAction="#handleUpgradeLab"/>
+                <Button fx:id="buyNeroifaCardButton" onAction="#handleBuyNeroifaCard" styleClass="neroifa-card-button"/>
+                <Button fx:id="tradeButton" onAction="#handleTrade"/>
+                <Button fx:id="cardsButton" text="Cards" onAction="#handleCards"/>
+                <Button fx:id="settingsButton" text="Settings" onAction="#handleSettings" styleClass="icon-button"/>
+                <Button fx:id="endTurnButton" text="End Turn" onAction="#handleEndTurn" styleClass="primary-button"/>
+            </FlowPane>
+            <VBox alignment="CENTER_RIGHT" spacing="2" styleClass="timer-footer">
+                <TimerView fx:id="timerView" styleClass="timer-large"/>
+                <Label text="TIME REMAINING" styleClass="timer-caption"/>
+            </VBox>
+        </HBox>
+    </bottom>
+</BorderPane>

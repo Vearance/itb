@@ -1,0 +1,600 @@
+.root {
+    -fx-font-family: "Trebuchet MS";
+    -fx-background-color: #f6f2e9;
+    -fx-font-size: 13px;
+}
+.screen { -fx-padding: 24; }
+.game-screen { -fx-background-color: linear-gradient(to bottom right, #fbfaf7, #efe7d6); }
+.title { -fx-font-size: 24px; -fx-font-weight: bold; -fx-letter-spacing: 2px; }
+.primary-button { -fx-background-color: #7b5b18; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 10 24; }
+.button { -fx-background-radius: 8; -fx-border-radius: 8; -fx-padding: 8 12; -fx-font-weight: bold; }
+.brand-title { -fx-font-size: 18px; -fx-font-weight: bold; -fx-letter-spacing: 3px; -fx-text-fill: #5f4819; }
+.muted-label { -fx-text-fill: #8f846f; -fx-font-size: 13px; }
+.header-value { -fx-text-fill: #3b3428; -fx-font-size: 14px; -fx-font-weight: bold; }
+.board-shell { -fx-padding: 18 20 14 20; }
+.board-view { -fx-background-color: transparent; }
+.ocean-frame { -fx-fill: linear-gradient(to bottom right, #2d91c2, #63b7d7); -fx-stroke: #2b6f8e; -fx-stroke-width: 2; }
+.hex-stack { -fx-effect: dropshadow(gaussian, rgba(0,0,0,.14), 8, 0, 0, 2); }
+.hex-tile { -fx-stroke: #fff7e8; -fx-stroke-width: 3; }
+.hex-texture { -fx-opacity: 0.56; }
+.hex-border { -fx-fill: transparent; -fx-stroke: #fff7e8; -fx-stroke-width: 3; }
+.terrain-forest { -fx-fill: #b8dfb9; }
+.terrain-hill { -fx-fill: #efc08f; }
+.terrain-field { -fx-fill: #f1dd98; }
+.terrain-mountain { -fx-fill: #e8e8e4; }
+.terrain-banana { -fx-fill: #fff0a7; }
+.terrain-desert { -fx-fill: #e2c69b; }
+.hex-terrain-label { -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #766040; -fx-letter-spacing: 1px; }
+.token-circle { -fx-fill: rgba(255,255,255,.9); -fx-stroke: #e0d5bd; }
+.token-label { -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #52452d; }
+.harbor-marker { -fx-fill: #ecf8ff; -fx-stroke: #2b77a1; -fx-stroke-width: 2; }
+.harbor-label { -fx-text-fill: #2b77a1; -fx-font-size: 11px; -fx-font-weight: bold; }
+.right-sidebar {
+    -fx-padding: 18 18 18 12;
+    -fx-background-color: rgba(255,255,255,.55);
+    -fx-border-color: #eee5d4;
+    -fx-border-width: 0 0 0 1;
+}
+.bank-resources-card {
+    -fx-padding: 8;
+    -fx-background-color: rgba(255,255,255,.86);
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #eee3ca;
+}
+.bank-resource-chip {
+    -fx-padding: 5 6;
+    -fx-min-width: 40;
+    -fx-background-color: rgba(255,249,231,.92);
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #ead8aa;
+}
+.bank-resource-amount {
+    -fx-font-size: 12px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #4f3b18;
+}
+.bank-deck-card-back,
+.bank-deck-card-front {
+    -fx-arc-width: 3;
+    -fx-arc-height: 3;
+    -fx-stroke: #5f4819;
+    -fx-stroke-width: 1;
+}
+.bank-deck-card-back { -fx-fill: #d9c08a; }
+.bank-deck-card-front { -fx-fill: #7b5b18; }
+.section-title { -fx-font-size: 14px; -fx-font-weight: bold; -fx-letter-spacing: 2px; -fx-text-fill: #6c604c; }
+.player-panel, .player-panel-active {
+    -fx-padding: 12;
+    -fx-background-color: rgba(255,255,255,.92);
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #eee3ca;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.06), 10, 0, 0, 2);
+}
+.player-panel-active { -fx-border-color: #c7962a; -fx-border-width: 2; }
+.player-avatar {
+    -fx-min-width: 28; -fx-min-height: 28; -fx-alignment: center;
+    -fx-background-radius: 999; -fx-background-color: #f1d281;
+    -fx-text-fill: #6b4b0e; -fx-font-weight: bold; -fx-font-size: 13px;
+}
+.player-name { -fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #3c3429; }
+.vp-badge { -fx-padding: 4 8; -fx-background-radius: 6; -fx-background-color: #f3d58e; -fx-font-weight: bold; -fx-text-fill: #6b4b0e; }
+.player-stats { -fx-font-size: 12px; -fx-text-fill: #7c715f; }
+.logbook-card { -fx-padding: 8; -fx-background-color: rgba(255,255,255,.78); -fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #eee3ca; }
+.board-logbook-card {
+    -fx-padding: 7;
+    -fx-background-color: rgba(255,255,255,.84);
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: rgba(95,72,25,.18);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.16), 12, 0, 0, 3);
+}
+.log-area { -fx-control-inner-background: transparent; -fx-background-color: transparent; -fx-border-color: transparent; -fx-font-size: 11px; -fx-text-fill: #5a5146; }
+.game-footer { -fx-padding: 10 16; -fx-background-color: rgba(255,255,255,.92); -fx-border-color: #e6ddcc; -fx-border-width: 1 0 0 0; }
+.game-actions .button { -fx-padding: 7 10; }
+.icon-button {
+    -fx-min-width: 38;
+    -fx-pref-width: 38;
+    -fx-min-height: 34;
+    -fx-padding: 7;
+    -fx-alignment: center;
+}
+.buy-card-icon-back {
+    -fx-arc-width: 3;
+    -fx-arc-height: 3;
+    -fx-fill: #d9c08a;
+    -fx-stroke: rgba(255,248,221,.86);
+    -fx-stroke-width: 1;
+}
+.buy-card-icon-front {
+    -fx-arc-width: 3;
+    -fx-arc-height: 3;
+    -fx-fill: #fff8dd;
+    -fx-stroke: #5f4819;
+    -fx-stroke-width: 1.2;
+}
+.trade-action-icon-line {
+    -fx-stroke: #5f4819;
+    -fx-stroke-width: 2.2;
+    -fx-stroke-line-cap: round;
+}
+.trade-action-icon-arrow {
+    -fx-fill: #5f4819;
+}
+.button-house-icon { -fx-fill: #f2d488; -fx-stroke: #5f4819; -fx-stroke-width: 1.5; }
+.button-pipe-icon { -fx-fill: #7fb7c8; -fx-stroke: #24596a; -fx-stroke-width: 1.5; }
+.trade-error { -fx-text-fill: #b72d24; }
+.resource-card {
+    -fx-padding: 8 10; -fx-min-width: 62; -fx-background-color: #fff9e7;
+    -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #ead8aa;
+}
+.resource-amount { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #5f4819; }
+.resource-name { -fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #8a7856; }
+.dice-view { -fx-spacing: 6; -fx-padding: 6; }
+.timer-view, .timer-large { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2d2a25; -fx-font-family: "Consolas"; }
+.timer-caption { -fx-font-size: 10px; -fx-font-weight: bold; -fx-text-fill: #d34d3f; }
+
+/* Main menu + lobby styles restored from the first UI shell */
+.menu-shell, .lobby-shell {
+    -fx-background-color: #f4f0e8;
+}
+.menu-stage, .lobby-pattern {
+    -fx-background-color: linear-gradient(to bottom right, #f7f4ee, #ece4d8);
+}
+.menu-card, .setup-card {
+    -fx-background-color: rgba(255,255,255,.94);
+    -fx-background-radius: 2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.10), 22, 0, 0, 8);
+}
+.menu-logo {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 4px;
+    -fx-text-fill: #755416;
+}
+.menu-button {
+    -fx-background-color: #ebe8e2;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: #3f382e;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1.5px;
+}
+.menu-button:hover {
+    -fx-background-color: #ded8cd;
+}
+.setup-card {
+    -fx-border-color: #efe6d7;
+    -fx-border-width: 1;
+}
+.setup-column {
+    -fx-background-color: transparent;
+}
+.card-divider {
+    -fx-background-color: #eee5d7;
+}
+.panel-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2.8px;
+    -fx-text-fill: #5d4c32;
+}
+.field-label {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 1.6px;
+    -fx-text-fill: #8f826c;
+}
+.setup-combo, .player-name-field {
+    -fx-background-color: #f7f5f0;
+    -fx-background-radius: 2;
+    -fx-border-color: #e7ddcd;
+    -fx-border-radius: 2;
+    -fx-font-size: 12px;
+}
+.player-row {
+    -fx-min-height: 38;
+}
+.color-choice {
+    -fx-cursor: hand;
+}
+.back-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #8b641e;
+    -fx-padding: 0;
+    -fx-font-size: 12px;
+    -fx-underline: true;
+}
+.plugin-drop {
+    -fx-background-color: #f8f6f1;
+    -fx-background-radius: 2;
+    -fx-border-color: #e8decf;
+    -fx-border-radius: 2;
+}
+.plugin-icon {
+    -fx-padding: 6 9;
+    -fx-background-color: #f2d488;
+    -fx-background-radius: 4;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #72530f;
+}
+.plugin-text {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #5c5141;
+}
+.plugin-plus {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #9b8c73;
+}
+.start-game-button {
+    -fx-background-color: #7b5b18;
+    -fx-background-radius: 0;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-letter-spacing: 2px;
+}
+.lobby-status {
+    -fx-font-size: 11px;
+    -fx-text-fill: #8d806b;
+}
+
+/* Game board refinements */
+.board-shell {
+    -fx-alignment: center;
+    -fx-padding: 18 28 14 28;
+}
+.board-view {
+    -fx-background-color: transparent;
+}
+.harbor-pill {
+    -fx-padding: 4 8;
+    -fx-background-color: #ecf8ff;
+    -fx-background-radius: 999;
+    -fx-border-color: #2b77a1;
+    -fx-border-radius: 999;
+    -fx-border-width: 2;
+    -fx-text-fill: #1f6792;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+/* Revised board interaction */
+.terrain-forest { -fx-fill: #4f8f48; }
+.terrain-hill { -fx-fill: #c8752d; }
+.terrain-field { -fx-fill: #d8ad32; }
+.terrain-mountain { -fx-fill: #6f6f6f; }
+.terrain-banana { -fx-fill: #ffe77a; }
+.hex-terrain-label { -fx-text-fill: #3c2f1d; -fx-font-size: 10px; -fx-font-weight: 900; }
+.token-label-red { -fx-font-size: 13px; -fx-font-weight: bold; -fx-text-fill: #d33a34; }
+.intersection-hotspot { -fx-fill: rgba(255,255,255,.85); -fx-stroke: #8a7c65; -fx-stroke-width: 1; -fx-cursor: hand; }
+.intersection-hotspot:hover { -fx-fill: #ffe08a; -fx-stroke: #8b641e; -fx-stroke-width: 2; }
+.build-path-hotspot { -fx-stroke: rgba(255,255,255,.15); -fx-stroke-width: 10; -fx-stroke-line-cap: round; -fx-cursor: hand; }
+.build-path-hotspot:hover { -fx-stroke: rgba(255,216,120,.75); }
+.built-pipe { -fx-stroke-width: 8; -fx-stroke-line-cap: round; -fx-effect: dropshadow(gaussian, rgba(0,0,0,.28), 4, 0, 0, 1); }
+.settlement-marker, .lab-marker { -fx-stroke: #2f2414; -fx-stroke-width: 2; -fx-cursor: hand; }
+.piece-marker {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.24), 5, 0, 0, 2);
+}
+.piece-image {
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,.40), 2, 0, 0, 0);
+}
+.road-piece-hitbox {
+    -fx-cursor: hand;
+}
+.road-piece-image {
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.22), 4, 0, 0, 1);
+}
+.harbor-pill { -fx-font-size: 12px; -fx-padding: 5 8; }
+.dialog-root { -fx-background-color: #fbfaf6; }
+.cards-dialog { -fx-background-color: #fbfaf6; }
+.cards-dialog-title { -fx-font-size: 22px; -fx-letter-spacing: 1.4px; -fx-text-fill: #3b3428; }
+.cards-dialog-subtitle { -fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #8f846f; }
+.cards-scroll { -fx-background-color: transparent; -fx-border-color: transparent; -fx-background-insets: 0; -fx-padding: 0; }
+.cards-scroll > .viewport { -fx-background-color: transparent; }
+.cards-row { -fx-padding: 2 4 4 2; }
+.experiment-card {
+    -fx-padding: 12;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: rgba(95,72,25,.18);
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.10), 10, 0, 0, 2);
+}
+.card-title { -fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #2f2a22; }
+.card-desc { -fx-font-size: 12px; -fx-text-fill: #51483a; }
+.card-meta { -fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: rgba(59,52,40,.68); }
+.card-knight { -fx-background-color: linear-gradient(to bottom, #efe6ff, #dfd0f5); }
+.card-road { -fx-background-color: linear-gradient(to bottom, #f5f2ec, #e4dfd5); }
+.card-monopoly { -fx-background-color: linear-gradient(to bottom, #e0f4df, #cbe8ce); }
+.card-vp { -fx-background-color: linear-gradient(to bottom, #fff0bd, #f2d989); }
+.card-plugin { -fx-background-color: linear-gradient(to bottom, #dff0f4, #c7dfe7); }
+.card-longest { -fx-background-color: #ead3b3; }
+.card-army { -fx-background-color: #d8eaff; }
+.card-status-bar {
+    -fx-padding: 8 10;
+    -fx-background-color: rgba(255,255,255,.72);
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(95,72,25,.12);
+    -fx-border-radius: 8;
+}
+.cards-empty-state {
+    -fx-padding: 18;
+    -fx-background-color: rgba(255,255,255,.72);
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(95,72,25,.14);
+    -fx-border-radius: 8;
+    -fx-text-fill: #6c604c;
+}
+.danger-title { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #b72d24; }
+.discard-resource-box, .trade-resource-box, .score-box { -fx-padding: 12; -fx-background-color: #fff8e6; -fx-background-radius: 10; -fx-border-color: #ead8aa; -fx-border-radius: 10; }
+.steal-target-row, .secret-card-row { -fx-padding: 12; -fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-color: #eee3ca; -fx-border-radius: 10; }
+.turn-transition-screen { -fx-background-color: #302f2d; }
+.turn-transition-screen .title, .turn-transition-screen .section-title, .transition-message { -fx-text-fill: #fff7e6; }
+.transition-message { -fx-font-size: 16px; -fx-text-alignment: center; }
+.playtime-card { -fx-padding: 18 42; -fx-background-color: #f2eee5; -fx-background-radius: 4; }
+.experiment-card-selected {
+    -fx-border-color: #7b5b18;
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(123,91,24,.35), 16, 0, 0, 3);
+}
+.card-chip {
+    -fx-padding: 4 8;
+    -fx-background-color: rgba(255,255,255,.72);
+    -fx-background-radius: 999;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #5a4a32;
+}
+
+/* Harbor revision: one harbor belongs to one coastal edge. */
+.harbor-edge {
+    -fx-stroke: #f2c15c;
+    -fx-stroke-width: 5;
+    -fx-stroke-line-cap: round;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.18), 4, 0, 0, 1);
+}
+.harbor-connector {
+    -fx-stroke: #f2c15c;
+    -fx-stroke-width: 3;
+    -fx-stroke-line-cap: round;
+}
+.robber-marker {
+    -fx-fill: #7a32c8;
+    -fx-stroke: #2f1748;
+    -fx-stroke-width: 2.5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.36), 8, 0, 0, 2);
+}
+.robber-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 15px;
+    -fx-font-weight: 900;
+}
+.robber-target-tile .hex-tile {
+    -fx-stroke: #f6d56c;
+    -fx-stroke-width: 4;
+}
+.robber-current-tile .hex-tile {
+    -fx-stroke: #7a32c8;
+    -fx-stroke-width: 4;
+}
+.ocean-frame {
+    -fx-arc-width: 22;
+    -fx-arc-height: 22;
+}
+.sand-shore {
+    -fx-stroke: rgba(235, 198, 112, .86);
+    -fx-effect: dropshadow(gaussian, rgba(89,60,25,.18), 5, 0, 0, 1);
+}
+
+/* Compact in-map HUD after removing the old header. */
+.board-hud {
+    -fx-padding: 5 7 5 7;
+    -fx-background-color: rgba(255,255,255,.84);
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(95,72,25,.16);
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.14), 12, 0, 0, 3);
+}
+.hud-text,
+.hud-turn-number {
+    -fx-font-size: 12px;
+    -fx-text-fill: #3b3428;
+}
+.hud-turn-number {
+    -fx-font-weight: 900;
+}
+.board-hud .primary-button,
+.board-hud .button {
+    -fx-padding: 4 8;
+}
+
+.board-dice-overlay {
+    -fx-spacing: 8;
+    -fx-padding: 8;
+    -fx-background-color: rgba(20,80,105,.45);
+    -fx-background-radius: 8;
+    -fx-border-color: rgba(255,255,255,.55);
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.22), 12, 0, 0, 3);
+}
+.die-face {
+    -fx-arc-width: 10;
+    -fx-arc-height: 10;
+    -fx-fill: #fffdf7;
+    -fx-stroke: #5f4819;
+    -fx-stroke-width: 1.4;
+}
+.die-pip {
+    -fx-fill: #2d2a25;
+}
+
+.timer-footer {
+    -fx-min-width: 116;
+    -fx-padding: 0 4 0 8;
+}
+.game-footer {
+    -fx-spacing: 12;
+}
+.game-actions {
+    -fx-column-halignment: right;
+}
+
+/* Resource icon pass: replace text-heavy terrain/resource descriptors with compact images. */
+.hex-terrain-icon {
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,.62), 3, 0, 0, 0);
+}
+.resource-card-icon,
+.trade-resource-icon {
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,.72), 3, 0, 0, 0);
+}
+.trade-resource-box {
+    -fx-min-width: 92;
+    -fx-pref-width: 96;
+}
+.harbor-ratio-text {
+    -fx-text-fill: #1f6792;
+    -fx-font-size: 11px;
+    -fx-font-weight: 900;
+}
+.harbor-wildcard-icon {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 999;
+    -fx-border-color: #2b77a1;
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-text-fill: #1f6792;
+    -fx-font-weight: 900;
+}
+.button-lab-icon {
+    -fx-fill: #f2d488;
+    -fx-stroke: #5f4819;
+    -fx-stroke-width: 1.5;
+}
+.button-lab-door-icon {
+    -fx-fill: #5f4819;
+}
+
+
+/* Animated board ambience: water GIF + transparent cloud overlays. */
+.ocean-water-animation {
+    -fx-opacity: 0.92;
+}
+.ocean-frame {
+    -fx-fill: transparent;
+    -fx-stroke: rgba(30, 96, 130, 0.72);
+    -fx-stroke-width: 2.5;
+    -fx-arc-width: 22;
+    -fx-arc-height: 22;
+}
+.cloud-overlay {
+    -fx-opacity: 0.70;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,.45), 12, 0.25, 0, 0);
+}
+
+/* Final icon/card polish. */
+.resource-card {
+    -fx-padding: 7 9;
+    -fx-min-width: 58;
+    -fx-pref-width: 64;
+}
+.resource-card-icon {
+    -fx-fit-width: 32;
+    -fx-fit-height: 32;
+}
+.trade-resource-box {
+    -fx-min-width: 92;
+    -fx-pref-width: 98;
+    -fx-padding: 12 10;
+}
+.trade-resource-icon {
+    -fx-fit-width: 42;
+    -fx-fit-height: 42;
+}
+.neroifa-card-button {
+    -fx-background-color: #7b5b18;
+    -fx-text-fill: #fff8dd;
+    -fx-font-size: 11px;
+    -fx-font-weight: 900;
+    -fx-padding: 7 12;
+}
+.robber-image {
+    -fx-effect: dropshadow(gaussian, rgba(65, 23, 98, .58), 8, 0, 0, 2);
+}
+
+/* Icon/robber placement polish */
+.hex-terrain-icon {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.18), 2, 0, 0, 1);
+}
+.token-circle {
+    -fx-fill: rgba(255,255,255,.94);
+    -fx-stroke: #e2d7bf;
+    -fx-stroke-width: 1.2;
+}
+.token-label, .token-label-red {
+    -fx-font-size: 15px;
+    -fx-font-weight: 900;
+}
+.token-label { -fx-text-fill: #3f3524; }
+.token-label-red { -fx-text-fill: #d33a34; }
+.robber-piece-frame {
+    -fx-fill: rgba(255,255,255,.86);
+    -fx-arc-width: 8;
+    -fx-arc-height: 8;
+    -fx-stroke: #5b3b86;
+    -fx-stroke-width: 2;
+}
+.robber-piece {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.28), 6, 0, 0, 2);
+}
+.robber-image {
+    -fx-effect: none;
+}
+
+
+/* Lighthouse harbor marker: more readable than the small boat sprite. */
+.harbor-lighthouse-marker {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.harbor-lighthouse-image {
+    -fx-opacity: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.24), 5, 0, 0, 2);
+}
+
+.harbor-lighthouse-content {
+    -fx-background-color: rgba(255,255,255,.90);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(74,50,25,.34);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-padding: 2 5;
+    -fx-spacing: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,.16), 4, 0, 0, 1);
+}
+
+.harbor-lighthouse-marker .harbor-ratio-text,
+.harbor-ratio-text {
+    -fx-text-fill: #111111;
+    -fx-font-size: 11px;
+    -fx-font-weight: 900;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,.85), 2, 0, 0, 0);
+}
+
+.harbor-lighthouse-marker .harbor-wildcard-icon {
+    -fx-background-color: rgba(255,255,255,.86);
+    -fx-background-radius: 999;
+    -fx-border-color: rgba(0,0,0,.45);
+    -fx-border-radius: 999;
+    -fx-border-width: 1;
+    -fx-text-fill: #111111;
+}
