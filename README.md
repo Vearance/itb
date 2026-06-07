@@ -23,9 +23,12 @@ itb/
 │
 └── 📂 sem-4/
     ├── praktikum-oop
+    ├── tubes-jarkom
     ├── tubes-oop-1
+    ├── tubes-oop-2
     ├── tubes-stima-1
     ├── tubes-stima-2
+    ├── tubes-tbfo
     ├── tucil-stima-1
     ├── tucil-stima-2
     └── tucil-stima-3
@@ -56,9 +59,12 @@ itb/
 | Project | Description |
 |---------|-------------|
 | [praktikum-oop](./sem-4/praktikum-oop) | Object-Oriented Programming Practicum (IF2010) |
+| [tubes-jarkom](./sem-4/tubes-jarkom) | Computer Network (IF2230) |
 | [tubes-oop-1](./sem-4/tubes-oop-1) | Object-Oriented Programming (IF2010) |
+| [tubes-oop-2](./sem-4/tubes-oop-2) | Object-Oriented Programming (IF2010) |
 | [tubes-stima-1](./sem-4/tubes-stima-1) | Strategy Algorithm (IF2211) |
 | [tubes-stima-2](./sem-4/tubes-stima-2) | Strategy Algorithm (IF2211) |
+| [tubes-tbfo](./sem-4/tubes-tbfo) | Formal Language and Automata Theory (IF2224) |
 | [tucil-stima-1](./sem-4/tucil-stima-1) | Strategy Algorithm (IF2211) |
 | [tucil-stima-2](./sem-4/tucil-stima-2) | Strategy Algorithm (IF2211) |
 | [tucil-stima-3](./sem-4/tucil-stima-3) | Strategy Algorithm (IF2211) |
