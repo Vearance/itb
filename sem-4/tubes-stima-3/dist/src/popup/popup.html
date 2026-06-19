@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Judol Detector</title>
+    <style>
+        :root {
+            color-scheme: light;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 14px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7f8f5;
+            color: #1c1f1a;
+            margin: 0;
+            width: 390px;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .shell {
+            display: grid;
+            gap: 14px;
+            padding: 16px;
+        }
+
+        .topbar {
+            align-items: center;
+            display: grid;
+            gap: 12px;
+            grid-template-columns: minmax(0, 1fr) auto;
+        }
+
+        h1,
+        h2,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 18px;
+            font-weight: 750;
+        }
+
+        h2 {
+            font-size: 13px;
+            font-weight: 720;
+        }
+
+        .page-title,
+        .status {
+            color: #60695d;
+            font-size: 12px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .rescan-button {
+            align-items: center;
+            background: #1f7a5c;
+            border: 0;
+            border-radius: 7px;
+            color: #ffffff;
+            cursor: pointer;
+            display: inline-flex;
+            font-weight: 700;
+            min-height: 34px;
+            padding: 0 12px;
+        }
+
+        .rescan-button:disabled {
+            cursor: wait;
+            opacity: 0.7;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .censor-toggle-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .censor-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #60695d;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 38px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 20px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 50%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        input:checked+.slider {
+            background-color: #1f7a5c;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #1f7a5c;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(18px);
+        }
+
+        .summary-grid {
+            display: grid;
+            gap: 8px;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .metric,
+        .panel {
+            background: #ffffff;
+            border: 1px solid #dfe4d8;
+            border-radius: 8px;
+        }
+
+        .metric {
+            min-height: 48px;
+            padding: 8px 10px;
+        }
+
+        .metric span {
+            color: #687066;
+            display: block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .metric strong {
+            color: #171a15;
+            display: block;
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        .panel {
+            display: grid;
+            gap: 10px;
+            padding: 12px;
+        }
+
+        .algorithm-list {
+            display: grid;
+            gap: 7px;
+        }
+
+        .stat-row {
+            align-items: center;
+            display: grid;
+            gap: 8px;
+            grid-template-columns: minmax(0, 1fr) auto;
+            min-height: 26px;
+        }
+
+        .stat-row strong {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .stat-row span {
+            color: #5d6759;
+            font-size: 12px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .chart-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .chart-scroll-container {
+            overflow-x: auto;
+            width: 100%;
+            border: 1px solid #dfe4d8;
+            border-radius: 8px;
+            background: #ffffff;
+            scrollbar-width: thin;
+            scrollbar-color: #bec9b7 transparent;
+        }
+
+        .chart-scroll-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .chart-scroll-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chart-scroll-container::-webkit-scrollbar-thumb {
+            background-color: #bec9b7;
+            border-radius: 6px;
+        }
+
+        canvas {
+            background: #ffffff;
+            display: block;
+            height: 170px;
+        }
+
+        .empty {
+            color: #737b6f;
+            font-size: 12px;
+        }
+    </style>
+  <script type="module" crossorigin src="/popup.js"></script>
+</head>
+
+<body>
+    <main class="shell">
+        <header class="topbar">
+            <div>
+                <h1>Judol Detector</h1>
+                <p class="page-title" id="page-title">Waiting for scan</p>
+            </div>
+            <div class="header-actions">
+                <div class="censor-toggle-wrapper">
+                    <label class="switch">
+                        <input type="checkbox" id="blur-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span class="censor-label">Censor Text</span>
+                </div>
+                <button class="rescan-button" id="rescan-button" type="button">Rescan</button>
+            </div>
+        </header>
+
+        <section class="summary-grid" aria-label="Scan summary">
+            <div class="metric">
+                <span>Keywords</span>
+                <strong id="total-keywords">0</strong>
+            </div>
+            <div class="metric">
+                <span>Matches</span>
+                <strong id="total-matches">0</strong>
+            </div>
+            <div class="metric">
+                <span>Updated</span>
+                <strong id="last-scan">-</strong>
+            </div>
+        </section>
+
+        <section class="chart-grid" aria-label="Charts">
+            <div class="chart-scroll-container">
+                <canvas id="keyword-chart"></canvas>
+            </div>
+        </section>
+
+        <section class="panel">
+            <h2>Algorithms</h2>
+            <div class="algorithm-list" id="algorithm-stats"></div>
+        </section>
+
+        <p class="status" id="status">Realtime stats ready</p>
+    </main>
+</body>
+
+</html>
