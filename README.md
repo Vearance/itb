@@ -13,10 +13,10 @@ itb/
 │
 ├── 📂 sem-3/
 │   ├── asisten-berkom
-│   ├── praktikum-alpro
+│   ├── praktikum-alpro2
 │   ├── tubes-algeo-1
 │   ├── tubes-algeo-2
-│   ├── tubes-alpro
+│   ├── tubes-alpro2
 │   ├── tubes-os
 │   ├── tubes-probstat
 │   └── tubes-rpl
